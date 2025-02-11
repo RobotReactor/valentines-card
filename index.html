@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="style.css">    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <title>Valentines Day!</title>
 </head>
 <body>
@@ -15,6 +18,64 @@
             <button class="no">No</button>
         </div>
     </div>
-    
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const noButton = document.querySelector(".no");
+        const yesButton = document.querySelector(".yes");
+        const questionText = document.querySelector(".question");
+        let noClickCount = 0; // Counter for "No" clicks
+
+        noButton.addEventListener("click", function() {
+            noClickCount++;
+            if (noClickCount === 1) {
+                questionText.innerHTML = 'Are you sure?';
+            } else if (noClickCount === 2) {
+                questionText.innerHTML = 'Really?';
+            } else
+            if (noClickCount >= 3) {
+                questionText.innerHTML = 'Good luck getting out of this one!';
+                noButton.innerText = "You can't escape!";
+                
+                noButton.style.position = "absolute";
+                noButton.style.transition = "width, height 0s";
+                noButton.style.height = "40px";
+                noButton.style.width = "70px";
+
+                const maxX = window.innerWidth - noButton.clientWidth;
+                const maxY = window.innerHeight - noButton.clientHeight;
+
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+
+        noButton.addEventListener("mouseover", function() {
+            if (noClickCount >= 3) { 
+                noButton.style.position = "absolute";
+                noButton.style.transition = "width, height 0s";
+                noButton.style.height = "40px";
+                noButton.style.width = "70px";
+
+                const maxX = window.innerWidth - noButton.clientWidth;
+                const maxY = window.innerHeight - noButton.clientHeight;
+
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+
+        yesButton.addEventListener("click", function() {
+            questionText.innerHTML = 'I\'m so happy you said yes!<br>I love you!';
+            noButton.style.display = "none";
+        });
+    });
+</script>
+
 </html>
