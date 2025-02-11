@@ -1,0 +1,64 @@
+.html, body {
+    height: 100%;
+    overflow:  hidden;
+}
+.container {
+    width: 100vh;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.question {
+    width: 400px;
+    height: 100px;
+    margin: 20px;
+    padding: 0px;
+    background: #f9f9f9;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.answers {
+    width: 400px;
+    height: 100px;
+    margin: 20px;
+    padding: 0px;
+    background: #f9f9f9;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.yes {
+    width: 100%;
+    margin: 20px 40px 20px 40px;
+    background: #4CAF50;
+}
+.no {
+    /* display: none; */
+    width: 100%;
+    margin: 20px 40px 20px 40px;
+    background: #f44336;
+}
+.yes:hover {
+    background: #45a049;
+}
+.no:hover {
+    background: #f43333;
+}
+.yes:active {
+    background: #3e8e41;
+}
+.no:active {
+    background: #f41336;
+}
