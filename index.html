@@ -4,17 +4,88 @@
     <link rel="stylesheet" href="style.css">    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <title>Valentines Day!</title>
 </head>
 <body>
     <div class="container">
         <h1 class="question">Will you be my Valentine?</h1>
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFvdzMxYXdybDN0cmdmMzB5c3pqZGV4d2xrcTd1OTYwMGZmdTZ5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Gpqk76tiVKjn2/giphy.gif" alt="Valentine" class="valentine"></img>
+        <img class="gif" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWFvdzMxYXdybDN0cmdmMzB5c3pqZGV4d2xrcTd1OTYwMGZmdTZ5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Gpqk76tiVKjn2/giphy.gif" alt="Valentine" class="valentine"></img>
         <div class="answers">
             <button class="yes">Yes</button>
             <button class="no">No</button>
         </div>
     </div>
-    
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const noButton = document.querySelector(".no");
+        const yesButton = document.querySelector(".yes");
+        const questionText = document.querySelector(".question");
+        
+        let noClickCount = 0; // Counter for "No" clicks
+        
+        noButton.addEventListener("click", function() {
+            noClickCount++;
+            if (noClickCount === 1) {
+                questionText.innerHTML = 'Are you sure?';
+                document.querySelector(".gif").src = "https://media.giphy.com/media/pdmXFaHbPm9oAkF3pj/giphy.gif?cid=790b7611myhi1gwvltu39ube1xpjxldaqmx11rr0x8ptfopk&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+            } else if (noClickCount === 2) {
+                questionText.innerHTML = 'Really?';
+                document.querySelector(".gif").src = "https://media.giphy.com/media/xTiIzzYsS5UeSANFbW/giphy.gif?cid=790b7611py9esbkd1mvl1h3xav0chfd9vbsbzsysacrl3imj&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+            } else
+            if (noClickCount >= 3) {
+                document.querySelector(".gif").src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHF5bW13ODYzdG0zbm1teG04NHFxdzZkb3IwNngxbGF1M3loOWF0OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oz8xxYqZDkPLfH7yM/giphy.gif";
+
+                questionText.innerHTML = 'Good luck getting out of this one!';
+                noButton.innerText = "You can't escape!";
+                
+                noButton.style.position = "absolute";
+                noButton.style.transition = "width, height 0s";
+                noButton.style.height = "40px";
+                noButton.style.width = "70px";
+
+                const maxX = window.innerWidth - noButton.clientWidth;
+                const maxY = window.innerHeight - noButton.clientHeight;
+
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+
+        noButton.addEventListener("mouseover", function() {
+            if (noClickCount >= 3) { 
+                noButton.style.position = "absolute";
+                noButton.style.transition = "width, height 0s";
+                noButton.style.height = "40px";
+                noButton.style.width = "70px";
+
+                const maxX = window.innerWidth - noButton.clientWidth;
+                const maxY = window.innerHeight - noButton.clientHeight;
+
+                const randomX = Math.floor(Math.random() * maxX);
+                const randomY = Math.floor(Math.random() * maxY);
+
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+
+        yesButton.addEventListener("click", function() {
+            questionText.innerHTML = 'I\'m so happy you said yes!<br>I love you!';
+            if (noClickCount >= 3) {
+                document.querySelector(".gif").src = "https://media.giphy.com/media/9GniYebxnt2Za/giphy.gif?cid=790b7611pocmth51362w6gslz8a37paqrt0ys4tpjiwc5ku2&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+            } else {
+                document.querySelector(".gif").src = "https://media.giphy.com/media/YY9MdZisfM3x6/giphy.gif?cid=ecf05e47bnrg0tui4jkockzihratarg07jr7wvpybl6qa6am&ep=v1_gifs_search&rid=giphy.gif&ct=g";
+            }
+            yesButton.textContent = 'L.O.M.L.';
+            noButton.style.display = "none";
+        });
+    });
+</script>
 </html>

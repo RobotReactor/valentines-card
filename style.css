@@ -1,23 +1,26 @@
 .html, body {
     height: 100%;
     overflow:  hidden;
+    font-family: "Architects Daughter", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #e6e6e6;
 }
 .container {
     width: 100vh;
     height: 100vh;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .question {
-    width: 400px;
-    height: 100px;
+    width: 450px;
+    height: 150px;
     margin: 20px;
-    padding: 0px;
-    background: #f9f9f9;
+    padding: 10px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -30,7 +33,7 @@
     height: 100px;
     margin: 20px;
     padding: 0px;
-    background: #f9f9f9;
+    background-color: #e6e6e6;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -41,15 +44,19 @@
 }
 .yes {
     width: 100%;
+    cursor: pointer;
     margin: 20px 40px 20px 40px;
     background: #4CAF50;
+    transition: all 0.6s ease;
 }
 .no {
-    /* display: none; */
     width: 100%;
     margin: 20px 40px 20px 40px;
     background: #f44336;
+    cursor: pointer;
+    transition: top 0.3s ease, left 0.3s ease; /* Smooth movement */
 }
+
 .yes:hover {
     background: #45a049;
 }
@@ -61,4 +68,29 @@
 }
 .no:active {
     background: #f41336;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: -100px;
+        width: 90vw;
+        height: 100vh;
+    }
+    .question {
+        width: 90%;
+    }
+
+    .answers {
+        width: 90%;
+    }
+    .gif {
+        width: 90%;
+    }
+    .yes {
+        margin: 20px 10px 20px 10px;
+    }
+    .no {
+        margin: 20px 10px 20px 10px;
+    }
+    
 }
