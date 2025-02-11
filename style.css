@@ -10,7 +10,7 @@
     width: 100vh;
     height: 100vh;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,4 +68,29 @@
 }
 .no:active {
     background: #f41336;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: -100px;
+        width: 90vw;
+        height: 100vh;
+    }
+    .question {
+        width: 90%;
+    }
+
+    .answers {
+        width: 90%;
+    }
+    .gif {
+        width: 90%;
+    }
+    .yes {
+        margin: 20px 10px 20px 10px;
+    }
+    .no {
+        margin: 20px 10px 20px 10px;
+    }
+    
 }
